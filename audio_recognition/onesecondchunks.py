@@ -5,9 +5,10 @@ import wave
 chunk = 4096
 FORMAT = pyaudio.paFloat32
 CHANNELS = 1
+
 RATE = 16000
 RECORD_SECONDS = 3
-WAVE_OUTPUT_FILENAME = "output.wav"
+WAVE_OUTPUT_FILENAME = "test.wav"
 NFRAMES = int((RATE * RECORD_SECONDS) / chunk)
 
 p = pyaudio.PyAudio()
@@ -30,7 +31,7 @@ stream.stop_stream()
 stream.close()
 p.terminate()
 # Save the recorded data as a WAV file
-wf = wave.open("output.wav", 'wb')
+wf = wave.open("test.wav", 'wb')
 wf.setnchannels(CHANNELS)
 wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)
